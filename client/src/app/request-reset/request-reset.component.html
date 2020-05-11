@@ -1,0 +1,22 @@
+<br>
+<mat-card  class="request-reset-form">
+    <section class="mat-typography">
+      <h3 >Forgot Password</h3> 
+    </section>
+    <mat-divider></mat-divider>
+    <br>
+    <form [formGroup]="RequestResetForm" >
+      <mat-form-field class="field-full-width">
+        <input matInput placeholder ="Email" formControlName="email" #email>
+      </mat-form-field>
+      <mat-error *ngIf="!RequestResetForm.get('email').valid && !IsvalidForm">
+        Please enter a valid email!
+      </mat-error>
+      <button type="submit" class=" btn btn-primary" 
+      (click)="RequestResetUser(RequestResetForm)">Reset Password</button>
+    </form>
+</mat-card>
+    
+
+
+  

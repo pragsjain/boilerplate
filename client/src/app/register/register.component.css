@@ -1,0 +1,14 @@
+.field-full-width{
+    width: 100%;
+}
+.signup-form{
+    min-width: 150px;
+    width: 48%;
+    margin: auto;
+    background: #F2F5F8;
+  }
+  @media only screen and (max-width: 600px) {
+    .signup-form{
+        width: 98%;
+    }
+ }   

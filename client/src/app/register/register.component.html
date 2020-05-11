@@ -1,0 +1,35 @@
+<div class="register-page">
+    <br>
+    <mat-card  class="signup-form">
+      <section class="mat-typography">
+        <h3>Sign Up To Track Issue</h3> 
+      </section>
+      <mat-divider></mat-divider>
+      <br>
+      <form [formGroup]="createSignupForm" >
+        <mat-form-field class="field-full-width">
+          <input matInput placeholder ="First Name*" formControlName="firstName" #firstName>
+        </mat-form-field>
+        <mat-form-field class="field-full-width">
+          <input matInput placeholder ="Last Name" formControlName="lastName" #lastName>
+        </mat-form-field>
+        <mat-form-field class="field-full-width">
+          <input matInput placeholder ="Email*" formControlName="email" #email>
+        </mat-form-field>
+        <mat-form-field class="field-full-width">
+          <input matInput placeholder ="User Name*" formControlName="userName" #userName>
+        </mat-form-field>
+        <mat-form-field class="field-full-width">
+            <input matInput placeholder ="Password*" formControlName="password" #password>
+        </mat-form-field>
+      </form>
+
+       <button type="submit"  (click)="signupFunction()"
+       [disabled]="(createSignupForm.pristine ||createSignupForm.invalid)" 
+       mat-raised-button class="btn btn-secondary" >Sign Up</button> &nbsp;&nbsp;&nbsp;
+       <button mat-raised-button class="btn btn-secondary" (click)="goToLogin()">Sign In</button>
+    </mat-card>
+  </div>
+
+     
+     

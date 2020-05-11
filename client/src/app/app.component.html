@@ -1,0 +1,15 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark flex-class">
+  <div>
+    <span class="material-icons">bug_report </span>
+    <a class="navbar-brand" href="/">Issue Tracking App</a> 
+  </div>
+  <div>
+    <span class="material-icons" [hidden]="!fullName">face </span> 
+    <!-- <img src="{{ user?.picture.data.url }}"><span>{{ user?.email }}</span> -->
+    <span class="user" [hidden]="!fullName">Hey, {{fullName}}</span>&nbsp;
+    <!-- <span class="material-icons" [hidden]="!fullName">notifications </span> -->
+    <button mat-raised-button class="btn btn-secondary" (click)="logout()" [hidden]="!fullName">Logout</button>
+  </div>
+</nav>
+<router-outlet></router-outlet>
+

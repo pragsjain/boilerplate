@@ -1,0 +1,30 @@
+<div class="login-page">
+    <br>
+    <mat-card  class="login-form">
+      <section class="mat-typography">
+        <h3 >Please Sign In</h3> 
+      </section>
+      <mat-divider></mat-divider>
+      <br>
+      <form [formGroup]="createLoginForm" >
+        <mat-form-field class="field-full-width">
+          <input matInput placeholder ="Email / User Name*" formControlName="emailOruserName" #emailOruserName>
+        </mat-form-field>
+        <mat-form-field class="field-full-width">
+          <input matInput type="password" matInput placeholder ="Password*" formControlName="password" #password>
+        </mat-form-field>
+      </form>
+
+       <button type="submit"  (click)="signinFunction()"
+       [disabled]="(createLoginForm.pristine ||createLoginForm.invalid)" 
+       mat-raised-button class="btn btn-secondary" >Sign In</button> &nbsp;&nbsp;&nbsp;
+       <button mat-raised-button class="btn btn-secondary" (click)="goToSignup()">Sign Up</button> &nbsp;
+       <button (click)="signInWithFB()">Sign in with Facebook</button>
+       <button (click)="goToRequestReset()">Request Reset</button>
+       <button (click)="goToResponseReset()">Response Reset</button>
+  
+    </mat-card>
+</div>
+
+
+  
