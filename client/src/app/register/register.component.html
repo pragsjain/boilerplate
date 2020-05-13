@@ -10,20 +10,38 @@
         <mat-form-field class="field-full-width">
           <input matInput placeholder ="First Name*" formControlName="firstName" #firstName>
         </mat-form-field>
+        <mat-error *ngIf="(createSignupForm.get('firstName').touched) && createSignupForm.get('firstName').errors?.required">
+          First name is required 
+        </mat-error>
         <mat-form-field class="field-full-width">
           <input matInput placeholder ="Last Name" formControlName="lastName" #lastName>
         </mat-form-field>
         <mat-form-field class="field-full-width">
           <input matInput placeholder ="Email*" formControlName="email" #email>
         </mat-form-field>
+        <mat-error *ngIf="(createSignupForm.get('email').touched) && createSignupForm.get('email').errors?.required">
+          Email is required 
+        </mat-error>
+        <mat-error *ngIf="(createSignupForm.get('email').touched) && createSignupForm.get('email').errors?.pattern">
+          Enter a valid email address
+        </mat-error>
         <mat-form-field class="field-full-width">
           <input matInput placeholder ="User Name*" formControlName="userName" #userName>
         </mat-form-field>
+        <mat-error *ngIf="(createSignupForm.get('userName').touched) && createSignupForm.get('userName').errors?.required">
+          User Name is required 
+        </mat-error>
         <mat-form-field class="field-full-width">
             <input matInput placeholder ="Password*" formControlName="password" #password>
         </mat-form-field>
+        <mat-error *ngIf="(createSignupForm.get('password').touched) && createSignupForm.get('password').errors?.required">
+          Password is required 
+        </mat-error>
+        <mat-error *ngIf="(createSignupForm.get('password').touched) && createSignupForm.get('password').errors?.minLength">
+          Password Length should be greater than 4 letters
+        </mat-error>
       </form>
-
+      <br>
        <button type="submit"  (click)="signupFunction()"
        [disabled]="(createSignupForm.pristine ||createSignupForm.invalid)" 
        mat-raised-button class="btn btn-secondary" >Sign Up</button> &nbsp;&nbsp;&nbsp;
