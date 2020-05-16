@@ -8,7 +8,7 @@ const Auth = mongoose.model('Auth')
 const logger = require('./../libs/loggerLib')
 const responseLib = require('./../libs/responseLib')
 const check = require('./../libs/checkLib')
-const tokenLib = require('./../libs/timeLib')
+const tokenLib = require('./../libs/tokenLib')
 
 let isAuthenticated = (req, res, next) => {
   console.log(`------------ inside isAuthenticated function-----------------`)
@@ -27,7 +27,7 @@ let isAuthenticated = (req, res, next) => {
         let apiResponse = responseLib.generate(true, 'Invalid Or Expired Authentication Key', 404, null)
         res.send(apiResponse)
       } else {
-        console.log(tokenLib.secretKey);
+        //console.log(tokenLib.secretKey);
         jwt.verify(authDetails.authToken, tokenLib.secretKey, (err, decoded) => {
           if (err) {
             if (err.name === 'TokenExpiredError') {

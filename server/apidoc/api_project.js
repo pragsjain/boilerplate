@@ -1,7 +1,7 @@
 define({
-  "name": "Issue Tracking Application",
+  "name": "Split Wise",
   "version": "0.0.1",
-  "description": "Documentation for the issue tracking",
+  "description": "Documentation for split wise",
   "title": "Issue APIs",
   "url": "http://localhost:3000",
   "sampleUrl": false,

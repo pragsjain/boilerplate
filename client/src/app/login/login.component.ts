@@ -60,15 +60,7 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['/register']);
    }
   
-  goToRequestReset(){
-    this.router.navigate(['/request-reset-password']);
-  }
-
-  goToResponseReset(){
-    let token=''
-    this.router.navigate([`/response-reset-password/${token}`]); 
-  }
-
+   
   signinFunction: any = () => {
     let loginFormValue=this.createLoginForm.value;
       let data = {

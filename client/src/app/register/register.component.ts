@@ -12,7 +12,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms'
 export class RegisterComponent implements OnInit {
 
   createSignupForm:FormGroup;
-
+  emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
     constructor(  
       private appService: AppService,
       private router: Router,
@@ -32,9 +32,9 @@ export class RegisterComponent implements OnInit {
         userId:['',],
         firstName:['',Validators.required],
         lastName:[''],
-        email:['',Validators.required,Validators.email],
+        email:['',[Validators.required,Validators.pattern(this.emailPattern)]],
         userName:['',Validators.required],
-        password:['',Validators.required],
+        password:['',[Validators.required,Validators.minLength(4)]],
         createdOn:[''],
       })
     }

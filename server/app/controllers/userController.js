@@ -84,7 +84,7 @@ let signUpFunction = (req, res) => {
         return new Promise((resolve, reject) => {
             if (req.body.email && req.body.userName) {
                 if (check.isEmpty(req.body.password)) {
-                    let apiResponse = response.generate(true, '"password" parameter is missing"', 400, null)
+                    let apiResponse = response.generate(true, '"Password" is missing', 400, null)
                     reject(apiResponse)
                 } else {
                     resolve(req)
@@ -200,7 +200,7 @@ let signUpFunction = (req, res) => {
             let newAuth = new AuthModel({
                 userId: userDetails.userId,
                 authToken: userDetails.token,
-                tokenSecret: 'IssueTrackingAppSecret',
+                tokenSecret: 'SplitWiseAppSecret',
                 tokenGenerationTime: time.now()
             })
             newAuth.save((err, newAuth) => {
@@ -331,7 +331,7 @@ let loginFunction = (req, res) => {
             let newAuth = new AuthModel({
                 userId: userDetails.userId,
                 authToken: userDetails.token,
-                tokenSecret: 'IssueTrackingAppSecret',
+                tokenSecret: 'SplitWiseAppSecret',
                 tokenGenerationTime: time.now()
             })
             newAuth.save((err, newAuth) => {
