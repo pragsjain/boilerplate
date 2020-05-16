@@ -35,12 +35,6 @@ export class AppService {
   fullNameSource = new BehaviorSubject<string>('');
   fullName = this.fullNameSource.asObservable()
 
-  Savesresponse(response)
-  {
-        let url =  'http://localhost:64726/Api/Login/Savesresponse';
-        return this.http.post(url,response);
-  }
-
 
   signupFunction(formdata): Observable<any> {
     return this.http.post(`${this.url}/api/v1/users/signup`, formdata);

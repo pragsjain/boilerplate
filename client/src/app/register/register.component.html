@@ -17,6 +17,22 @@
           <input matInput placeholder ="Last Name" formControlName="lastName" #lastName>
         </mat-form-field>
         <mat-form-field class="field-full-width">
+          <mat-select formControlName="country_code">
+            <mat-option *ngFor="let code of country_code_list" [value]="code.dial_code">
+         {{code.name}}</mat-option>
+          </mat-select> 
+        </mat-form-field >
+        <mat-form-field class="field-full-width">
+          <input matInput placeholder ="Mobile Number*" formControlName="mobileNo" #mobileNo>
+          <span matPrefix>{{createSignupForm.get('country_code').value}}-&nbsp; </span>
+        </mat-form-field>
+        <mat-error *ngIf="(createSignupForm.get('mobileNo').touched) && createSignupForm.get('mobileNo').errors?.required">
+          Mobile Number is required
+        </mat-error>
+        <mat-error *ngIf="(createSignupForm.get('mobileNo').touched) && (createSignupForm.get('mobileNo').errors?.pattern || createSignupForm.get('mobileNo').errors?.minlength || createSignupForm.get('mobileNo').errors?.maxlength)">
+          Please, Enter 7 to 15 digits mobile number
+        </mat-error>
+        <mat-form-field class="field-full-width">
           <input matInput placeholder ="Email*" formControlName="email" #email>
         </mat-form-field>
         <mat-error *ngIf="(createSignupForm.get('email').touched) && createSignupForm.get('email').errors?.required">
@@ -32,13 +48,16 @@
           User Name is required 
         </mat-error>
         <mat-form-field class="field-full-width">
-            <input matInput placeholder ="Password*" formControlName="password" #password>
+            <input matInput placeholder ="Password*" [type]="hide ? 'password' : 'text'" formControlName="password" #password>
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
         </mat-form-field>
         <mat-error *ngIf="(createSignupForm.get('password').touched) && createSignupForm.get('password').errors?.required">
           Password is required 
         </mat-error>
-        <mat-error *ngIf="(createSignupForm.get('password').touched) && createSignupForm.get('password').errors?.minLength">
-          Password Length should be greater than 4 letters
+        <mat-error *ngIf="(createSignupForm.get('password').touched) && (createSignupForm.get('password').errors?.minlength || createSignupForm.get('password').errors?.maxlength)">
+          Password Length should be greater than 5 and less than 32 .
         </mat-error>
       </form>
       <br>

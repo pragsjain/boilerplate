@@ -34,6 +34,10 @@ let userSchema = new Schema({
     default: '',
     unique: true
   },
+  mobileNo: {
+    type: String,
+    default: '',
+  },
   email: {
     type: String,
     default: '',

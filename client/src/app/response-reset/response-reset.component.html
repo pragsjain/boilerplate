@@ -9,13 +9,13 @@
     <br>
     <form [formGroup]="ResponseResetForm" >
       <mat-form-field class="field-full-width">
-        <input matInput placeholder ="Password" formControlName="newPassword" #newPassword>
+        <input matInput placeholder ="Password"  type="password" formControlName="newPassword" #newPassword>
       </mat-form-field>
       <mat-error *ngIf="!ResponseResetForm.get('newPassword').valid && !IsResetFormValid">
             Password is required with atleast 4 characters.
       </mat-error>
       <mat-form-field class="field-full-width">
-        <input matInput placeholder ="Confirm Password" formControlName="confirmPassword" #confirmPassword>
+        <input matInput placeholder ="Confirm Password" type="password" formControlName="confirmPassword" #confirmPassword>
       </mat-form-field>
       <mat-error *ngIf="ResponseResetForm.get('confirmPassword').valid && (ResponseResetForm.get('confirmPassword').value != ResponseResetForm.get('newPassword').value) && !IsResetFormValid">
             Confirm Password does not match with password.

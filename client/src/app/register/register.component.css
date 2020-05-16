@@ -1,6 +1,12 @@
 .field-full-width{
     width: 100%;
 }
+.half-width{
+    width: 40%;
+}
+.rest-half{
+    width: 60%;
+}
 .signup-form{
     min-width: 150px;
     width: 48%;
